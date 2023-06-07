@@ -8,11 +8,12 @@ import {
     WHITE,
 } from "../../utils/styles";
 import Container from "../../Layout/Container/Container";
+import { useMediaQuery } from "@mui/material";
 
 const homeStyle = {
     background: LIGHT_GREY_BG,
     color: WHITE,
-    height: "100vh",
+    minHeight: "100vh",
     position: "relative",
     overflow: "hidden",
 };
@@ -39,6 +40,11 @@ const circleBaseStyles = {
     background: POLYGON_BG,
     boxShadow: POLYGON_SHADOW,
 };
+
+const spanStyle = {
+    color: PINK,
+};
+
 const avatarSize = { height: "30px", width: "30px" };
 
 const sideContainer = {
@@ -51,19 +57,20 @@ const sideContainer = {
 };
 
 function Home() {
+    const isMobile = useMediaQuery("(max-width:780px)");
     return (
         <Box sx={homeStyle}>
             <Container>
-                <Box sx={{ display: "flex" }}>
+                <Box sx={{ display: "flex", justifyContent: 'space-between' }}>
                     <Box sx={sideContainer}>
-                        <Typography sx={{ color: PINK, fontSize: "28px" }}>
+                        <Typography variant='h5' sx={{ color: PINK }} gutterBottom>
                             Hello, I am
                         </Typography>
                         <Typography
+                            variant='h1'
                             sx={{
-                                fontSize: "110px",
                                 fontWeight: "500",
-                                letterSpacing: "0.08em",
+                                letterSpacing: "0.05em",
                                 lineHeight: "112%",
                                 maxWidth: "50%",
                                 marginBottom: "25px",
@@ -111,7 +118,14 @@ function Home() {
                             Frontend Developer
                         </Typography>
 
-                        <Box sx={{width: 140, height: 2, background: PINK, margin: '10px 0'}} />
+                        <Box
+                            sx={{
+                                width: 140,
+                                height: 2,
+                                background: PINK,
+                                margin: "10px 0",
+                            }}
+                        />
                         <Typography
                             variant="body1"
                             sx={{ maxWidth: "400px", marginBottom: "15px" }}
@@ -123,7 +137,9 @@ function Home() {
                         <Typography variant="body1" sx={{ maxWidth: "400px" }}>
                             Having a great desire to develop and learn, I am
                             ready to face new challenges. I consider
-                            persistence, responsibility and sociability to be my
+                            <span style={spanStyle}> persistence</span>,{" "}
+                            <span style={spanStyle}>responsibility</span> and{" "}
+                            <span style={spanStyle}>sociability</span> to be my
                             best traits.
                         </Typography>
                     </Box>
@@ -136,6 +152,7 @@ function Home() {
                             top: "-50px",
                             left: "50%",
                             transform: "translateX(-50%)",
+                            display: isMobile ? 'none' : 'block'
                         }}
                     >
                         <img src="/avatar.png" alt="avatar" />

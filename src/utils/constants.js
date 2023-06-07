@@ -1,0 +1,1 @@
+export const MENU_ITEMS = ["Home", "About", "Skills", "Projects"];
