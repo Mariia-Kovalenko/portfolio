@@ -13,7 +13,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { useMediaQuery } from "@mui/material";
 import Header from "../Header/Header";
-import { LIGHT_GREY_BG, WHITE } from "../../utils/styles";
+import { DARK_GREY_BG, LIGHT_GREY_BG, WHITE } from "../../utils/styles";
 import { MENU_ITEMS } from "../../utils/constants";
 import { useEffect } from "react";
 
@@ -24,16 +24,8 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
 }>(({ theme, open }) => ({
     flexGrow: 1,
     padding: 0,
-    transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-    }),
     marginRight: -drawerWidth,
     ...(open && {
-        transition: theme.transitions.create("margin", {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
         marginRight: 0,
     }),
 }));
@@ -116,7 +108,7 @@ export default function PageLayout({
                 }}
                 PaperProps={{
                     sx: {
-                        background: LIGHT_GREY_BG,
+                        background: DARK_GREY_BG,
                         color: WHITE,
                     },
                 }}

@@ -1,6 +1,6 @@
-import { Avatar, Box, Link, Typography } from "@mui/material";
+import { Avatar, Box, Button, Link, Typography } from "@mui/material";
 import {
-    CODE_FONT,
+    DARKPINK,
     LIGHT_GREY_BG,
     PINK,
     POLYGON_BG,
@@ -9,6 +9,8 @@ import {
 } from "../../utils/styles";
 import Container from "../../Layout/Container/Container";
 import { useMediaQuery } from "@mui/material";
+import DownloadIcon from "@mui/icons-material/Download";
+import styled from "@emotion/styled";
 
 const homeStyle = {
     background: LIGHT_GREY_BG,
@@ -19,8 +21,8 @@ const homeStyle = {
 };
 
 const circleStyle = {
-    width: "800px",
-    height: "800px",
+    width: "700px",
+    height: "700px",
     borderRadius: "50%",
     background: POLYGON_BG,
     boxShadow: POLYGON_SHADOW,
@@ -48,31 +50,59 @@ const spanStyle = {
 const avatarSize = { height: "30px", width: "30px" };
 
 const sideContainer = {
-    height: "100vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     position: "relative",
     zIndex: 3,
+    paddingTop: "64px",
 };
 
+const ColoredButton = styled(Button)({
+    color: DARKPINK,
+    border: `1px solid ${DARKPINK}`,
+    "&:hover": {
+        backgroundColor: "rgba(249, 77, 118, 0.1)",
+        borderColor: DARKPINK,
+        boxShadow: "none",
+    },
+});
+
 function Home() {
+    const isSmallMobile = useMediaQuery("(max-width:540px)");
     const isMobile = useMediaQuery("(max-width:780px)");
+    const isSmallDesktop = useMediaQuery("(max-width:1100px)");
     return (
         <Box sx={homeStyle}>
             <Container>
-                <Box sx={{ display: "flex", justifyContent: 'space-between' }}>
-                    <Box sx={sideContainer}>
-                        <Typography variant='h5' sx={{ color: PINK }} gutterBottom>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: isMobile ? "column" : "row",
+                        justifyContent: "space-between",
+                    }}
+                >
+                    <Box
+                        sx={{
+                            ...sideContainer,
+                            paddingTop: isMobile ? "100px" : "0",
+                        }}
+                    >
+                        <Typography
+                            variant="h4"
+                            sx={{ color: PINK }}
+                            gutterBottom
+                        >
                             Hello, I am
                         </Typography>
                         <Typography
-                            variant='h1'
+                            variant="h1"
                             sx={{
+                                fontSize: isMobile ? "75px" : "100px",
                                 fontWeight: "500",
                                 letterSpacing: "0.05em",
                                 lineHeight: "112%",
-                                maxWidth: "50%",
+                                maxWidth: isMobile ? "100%" : "50%",
                                 marginBottom: "25px",
                             }}
                         >
@@ -113,118 +143,157 @@ function Home() {
                         </Link>
                     </Box>
 
-                    <Box sx={sideContainer}>
-                        <Typography variant="h5" fontWeight="500">
+                    <Box
+                        sx={{
+                            ...sideContainer,
+                            height: isMobile
+                                ? "fit-content"
+                                : "calc(100vh - 64px)",
+                        }}
+                    >
+                        <Typography
+                            variant="h5"
+                            fontWeight="500"
+                            sx={{ marginBottom: "20px" }}
+                        >
                             Frontend Developer
                         </Typography>
-
                         <Box
                             sx={{
-                                width: 140,
-                                height: 2,
-                                background: PINK,
-                                margin: "10px 0",
+                                maxWidth: isMobile ? "100%" : "350px",
+                                color: "lightgrey",
                             }}
-                        />
-                        <Typography
-                            variant="body1"
-                            sx={{ maxWidth: "400px", marginBottom: "15px" }}
                         >
-                            Based in Ukraine, I am a Frontend Developer, eager
-                            to jump start my career to apply my skills in coding
-                            and problems troubleshooting.
-                        </Typography>
-                        <Typography variant="body1" sx={{ maxWidth: "400px" }}>
-                            Having a great desire to develop and learn, I am
-                            ready to face new challenges. I consider
-                            <span style={spanStyle}> persistence</span>,{" "}
-                            <span style={spanStyle}>responsibility</span> and{" "}
-                            <span style={spanStyle}>sociability</span> to be my
-                            best traits.
-                        </Typography>
+                            <Typography
+                                variant="body1"
+                                sx={{ marginBottom: "15px" }}
+                            >
+                                Based in Ukraine, I am eager to jump start my
+                                career to apply my skills in coding.
+                            </Typography>
+                            <Typography
+                                variant="body1"
+                                sx={{ marginBottom: "20px" }}
+                            >
+                                Having a great desire to develop and learn, I am
+                                ready to face new challenges. I consider
+                                <span style={spanStyle}>
+                                    {" "}
+                                    persistence
+                                </span>,{" "}
+                                <span style={spanStyle}>
+                                    responsibility
+                                </span>{" "}
+                                and <span style={spanStyle}>sociability</span>{" "}
+                                to be my best traits.
+                            </Typography>
+                            <ColoredButton
+                                variant="outlined"
+                                size="large"
+                                fullWidth={isSmallMobile ? true : false}
+                                startIcon={<DownloadIcon />}
+                            >
+                                Download CV
+                            </ColoredButton>
+                        </Box>
                     </Box>
                 </Box>
 
-                <Box sx={circleStyle}>
+                <Box
+                    sx={{
+                        ...circleStyle,
+                        display: isMobile ? "none" : "block",
+                    }}
+                >
                     <Box
                         sx={{
                             position: "absolute",
                             top: "-50px",
                             left: "50%",
                             transform: "translateX(-50%)",
-                            display: isMobile ? 'none' : 'block'
                         }}
                     >
-                        <img src="/avatar.png" alt="avatar" />
+                        <img
+                            style={{ height: "100%", objectFit: "cover" }}
+                            src="/avatar.png"
+                            alt="avatar"
+                        />
                     </Box>
                 </Box>
             </Container>
 
+            {/* polygons */}
             <Box
                 sx={{
-                    ...polygonBaseStyles,
-                    height: 30,
-                    width: 30,
-                    ...circleBaseStyles,
-                    top: "15%",
-                    left: "23%",
-                }}
-            />
-            <Box
-                sx={{
-                    ...polygonBaseStyles,
-                    height: 50,
-                    width: 50,
-                    ...circleBaseStyles,
-                    top: "35%",
-                    right: "10%",
-                }}
-            />
-            <Box
-                sx={{
-                    ...polygonBaseStyles,
-                    bottom: "15%",
-                    left: "3%",
+                    display: isSmallDesktop ? "none" : "block",
                 }}
             >
-                <img src="/curves.svg" alt="" />
-            </Box>
-            <Box
-                sx={{
-                    ...polygonBaseStyles,
-                    right: "15%",
-                    top: "10%",
-                }}
-            >
-                <img src="/curves.svg" alt="" />
-            </Box>
-            <Box
-                sx={{
-                    ...polygonBaseStyles,
-                    boxShadow: POLYGON_SHADOW,
-                    background: POLYGON_BG,
-                    clipPath: "polygon(50% 0, 100% 100%, 0 100%)",
-                    width: "100px",
-                    height: "100px",
-                    bottom: "20%",
-                    right: "8%",
-                    transform: "rotate(20deg)",
-                }}
-            />
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        height: 30,
+                        width: 30,
+                        ...circleBaseStyles,
+                        top: "15%",
+                        left: "23%",
+                    }}
+                />
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        height: 50,
+                        width: 50,
+                        ...circleBaseStyles,
+                        top: "35%",
+                        right: "10%",
+                    }}
+                />
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        bottom: "15%",
+                        left: "3%",
+                    }}
+                >
+                    <img src="/curves.svg" alt="" />
+                </Box>
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        right: "15%",
+                        top: "10%",
+                    }}
+                >
+                    <img src="/curves.svg" alt="" />
+                </Box>
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        boxShadow: POLYGON_SHADOW,
+                        background: POLYGON_BG,
+                        clipPath: "polygon(50% 0, 100% 100%, 0 100%)",
+                        width: "100px",
+                        height: "100px",
+                        bottom: "20%",
+                        right: "8%",
+                        transform: "rotate(20deg)",
+                    }}
+                />
 
-            <Box
-                sx={{
-                    ...polygonBaseStyles,
-                    boxShadow: POLYGON_SHADOW,
-                    background: POLYGON_BG,
-                    clipPath: "polygon(50% 0, 100% 100%, 0 100%)",
-                    width: "100px",
-                    height: "100px",
-                    top: "33%",
-                    left: "2%",
-                    transform: "rotate(-20deg)",
-                }}
-            />
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        boxShadow: POLYGON_SHADOW,
+                        background: POLYGON_BG,
+                        clipPath: "polygon(50% 0, 100% 100%, 0 100%)",
+                        width: "100px",
+                        height: "100px",
+                        top: "33%",
+                        left: "2%",
+                        transform: "rotate(-20deg)",
+                    }}
+                />
+            </Box>
         </Box>
     );
 }
