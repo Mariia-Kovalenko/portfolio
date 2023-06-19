@@ -1,13 +1,13 @@
 import PageLayout from "./Layout/PageLayout/PageLayout";
+import About from "./components/About/About";
 import Home from "./components/Home/Home";
 
 function App() {
     return (
-        <div className="App">
-            <PageLayout>
-                <Home />
-            </PageLayout>
-        </div>
+        <PageLayout>
+            <Home />
+            <About />
+        </PageLayout>
     );
 }
 

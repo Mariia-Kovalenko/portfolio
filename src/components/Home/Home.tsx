@@ -18,6 +18,7 @@ const homeStyle = {
     minHeight: "100vh",
     position: "relative",
     overflow: "hidden",
+    paddingBottom: '20px'
 };
 
 const circleStyle = {
@@ -43,7 +44,7 @@ const circleBaseStyles = {
     boxShadow: POLYGON_SHADOW,
 };
 
-const spanStyle = {
+export const spanStyle = {
     color: PINK,
 };
 
@@ -59,11 +60,11 @@ const sideContainer = {
 };
 
 const ColoredButton = styled(Button)({
-    color: DARKPINK,
-    border: `1px solid ${DARKPINK}`,
+    color: PINK,
+    border: `1px solid ${PINK}`,
     "&:hover": {
         backgroundColor: "rgba(249, 77, 118, 0.1)",
-        borderColor: DARKPINK,
+        borderColor: PINK,
         boxShadow: "none",
     },
 });

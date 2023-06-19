@@ -37,7 +37,7 @@ interface AppBarProps extends MuiAppBarProps {
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== "open",
 })<AppBarProps>(({ theme, open }) => ({
-    position: "absolute",
+    position: "fixed",
     transition: theme.transitions.create(["margin", "width"], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -84,11 +84,22 @@ export default function PageLayout({
     };
 
     return (
-        <Box sx={{ display: "flex", position: "relative", overflowX: "hidden" }}>
+        <Box
+            sx={{
+                display: "flex",
+                position: "relative",
+                overflowX: "hidden",
+                color: WHITE,
+            }}
+        >
             <AppBar
                 position="fixed"
                 open={open}
-                sx={{ background: "none", color: WHITE, boxShadow: "none" }}
+                sx={{
+                    background: "rgba(43, 47, 51, 0.7)",
+                    color: WHITE,
+                    boxShadow: "none",
+                }}
             >
                 <Header
                     isMobile={isMobile}
