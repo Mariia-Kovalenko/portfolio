@@ -10,7 +10,7 @@ import {
 import Container from "../../Layout/Container/Container";
 import { useMediaQuery } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
-import styled from "@emotion/styled";
+import { ColoredButton } from "../../common/ColoredButton/ColoredButton";
 
 const homeStyle = {
     background: LIGHT_GREY_BG,
@@ -58,16 +58,6 @@ const sideContainer = {
     zIndex: 3,
     paddingTop: "64px",
 };
-
-const ColoredButton = styled(Button)({
-    color: PINK,
-    border: `1px solid ${PINK}`,
-    "&:hover": {
-        backgroundColor: "rgba(249, 77, 118, 0.1)",
-        borderColor: PINK,
-        boxShadow: "none",
-    },
-});
 
 function Home() {
     const isSmallMobile = useMediaQuery("(max-width:540px)");

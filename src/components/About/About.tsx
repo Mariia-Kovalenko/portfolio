@@ -1,8 +1,9 @@
 import { Box, Container, Typography, Link, useMediaQuery } from "@mui/material";
-import { CODE_FONT, PINK, WHITE } from "../../utils/styles";
+import { CODE_FONT, LIGHTGREY, PINK, WHITE } from "../../utils/styles";
 import LinkIcon from "@mui/icons-material/Link";
 import { CERTIFICATES, EDUCATION } from "../../utils/constants";
 import { spanStyle } from "../Home/Home";
+import SectionHeading from "../../common/SectionHeading/SectionHeading";
 
 const Title = ({ title }: { title: string }) => {
     return (
@@ -29,7 +30,7 @@ function AboutSection({
     children?: React.ReactNode;
 }) {
     return (
-        <Box sx={{ flex: `1 1 ${isMobile ? "50%" : "30%"}` }}>{children}</Box>
+        <Box sx={{ flex: `1 1 ${isMobile ? "50%" : "30%"}`, COLOR: 'inherit' }}>{children}</Box>
     );
 }
 
@@ -112,13 +113,7 @@ export default function About() {
 
     return (
         <Container>
-            <Typography
-                variant="h4"
-                fontFamily={CODE_FONT}
-                sx={{ margin: "25px 0" }}
-            >
-                {"<About/>"}
-            </Typography>
+            <SectionHeading title='About' />
             <Box
                 sx={{
                     display: "flex",
@@ -126,7 +121,7 @@ export default function About() {
                     flexDirection: isSmallMobile ? "column" : "row",
                     justifyContent: "space-between",
                     gap: "50px",
-                    color: "lightgrey",
+                    color: LIGHTGREY,
                 }}
             >
                 <AboutSection isMobile={isMobile}>

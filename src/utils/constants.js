@@ -24,3 +24,30 @@ export const EDUCATION = [
         years: '2021 - 2022'
     },
 ]
+
+export const PROJECTS = [
+    {
+        id: '1',
+        name: 'Cat API',
+        description: 'Application for browsing different cat breeds with images of cute cats. You can filter, like and dislike images.',
+        technologies: ['React'],
+        link: 'https://cats-api-1am0.onrender.com/',
+        image: 'cat-api-proj.jpg'
+    },
+    {
+        id: '2',
+        name: 'Task Manager',
+        description: 'A full-stack Jira-like application for managing tasks. Allows users to create boards, add tasks to them and change their progress.',
+        technologies: ['Angular', 'NodeJS'],
+        link: 'https://dashboard-angular-project.onrender.com',
+        image: 'task-controll-app.jpg'
+    },
+    {
+        id: '3',
+        name: 'Glamo',
+        description: 'A full-stack application for users who want to find the closest beauty services available in the area and browse them on a map.',
+        technologies: ['React', 'NestJS'],
+        link: 'https://github.com/Mariia-Kovalenko/glamo_beauty_app_frontend',
+        image: 'glamo-proj.jpg'
+    },
+]

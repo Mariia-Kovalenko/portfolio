@@ -6,7 +6,7 @@ export default function Container({children}: {children?: React.ReactNode}) {
         <Box sx={{
             maxWidth: '1200px',
             margin: '0 auto',
-            padding: '0 15px',
+            padding: '0 15px 20px',
             // border: '1px solid white'
         }}>
             {children}
