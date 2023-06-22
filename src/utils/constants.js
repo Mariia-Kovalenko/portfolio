@@ -51,3 +51,56 @@ export const PROJECTS = [
         image: 'glamo-proj.jpg'
     },
 ]
+
+export const SKILLS = [
+    {
+        id: '1',
+        name: 'HTML',
+        value: 98
+    },
+    {
+        id: '2',
+        name: 'CSS',
+        value: 95
+    },
+    {
+        id: '3',
+        name: 'JS',
+        value: 90
+    },
+    {
+        id: '4',
+        name: 'TypeScript',
+        value: 85
+    },
+    {
+        id: '5',
+        name: 'Git',
+        value: 78
+    },
+    {
+        id: '6',
+        name: 'Angular',
+        value: 50
+    },
+    {
+        id: '7',
+        name: 'React',
+        value: 80
+    },
+    {
+        id: '8',
+        name: 'NodeJS',
+        value: 50
+    },
+    {
+        id: '9',
+        name: 'NestJS',
+        value: 65
+    },
+    {
+        id: '10',
+        name: 'SQL',
+        value: 65
+    },
+]
