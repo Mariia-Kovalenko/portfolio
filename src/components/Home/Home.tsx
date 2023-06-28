@@ -11,6 +11,7 @@ import Container from "../../Layout/Container/Container";
 import { useMediaQuery } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import { ColoredButton } from "../../common/ColoredButton/ColoredButton";
+import { circleBaseStyles, circleStyle, polygonBaseStyles, spanStyle } from "../../utils/constants";
 
 const homeStyle = {
     background: LIGHT_GREY_BG,
@@ -21,32 +22,32 @@ const homeStyle = {
     paddingBottom: '20px'
 };
 
-const circleStyle = {
-    width: "700px",
-    height: "700px",
-    borderRadius: "50%",
-    background: POLYGON_BG,
-    boxShadow: POLYGON_SHADOW,
-    position: "absolute",
-    zIndex: 1,
-    top: "20%",
-    left: "50%",
-    transform: "translateX(-50%)",
-};
+// const circleStyle = {
+//     width: "700px",
+//     height: "700px",
+//     borderRadius: "50%",
+//     background: POLYGON_BG,
+//     boxShadow: POLYGON_SHADOW,
+//     position: "absolute",
+//     zIndex: 1,
+//     top: "20%",
+//     left: "50%",
+//     transform: "translateX(-50%)",
+// };
 
-const polygonBaseStyles = {
-    position: "absolute",
-    zIndex: 0,
-};
-const circleBaseStyles = {
-    borderRadius: "50%",
-    background: POLYGON_BG,
-    boxShadow: POLYGON_SHADOW,
-};
+// const polygonBaseStyles = {
+//     position: "absolute",
+//     zIndex: 0,
+// };
+// const circleBaseStyles = {
+//     borderRadius: "50%",
+//     background: POLYGON_BG,
+//     boxShadow: POLYGON_SHADOW,
+// };
 
-export const spanStyle = {
-    color: PINK,
-};
+// export const spanStyle = {
+//     color: PINK,
+// };
 
 const avatarSize = { height: "30px", width: "30px" };
 

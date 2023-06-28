@@ -1,8 +1,7 @@
 import { Box, Container, Typography, Link, useMediaQuery } from "@mui/material";
 import { CODE_FONT, LIGHTGREY, PINK, WHITE } from "../../utils/styles";
 import LinkIcon from "@mui/icons-material/Link";
-import { CERTIFICATES, EDUCATION } from "../../utils/constants";
-import { spanStyle } from "../Home/Home";
+import { CERTIFICATES, EDUCATION, spanStyle } from "../../utils/constants";
 import SectionHeading from "../../common/SectionHeading/SectionHeading";
 
 const Title = ({ title }: { title: string }) => {

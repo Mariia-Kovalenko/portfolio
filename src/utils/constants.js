@@ -1,3 +1,4 @@
+import { POLYGON_BG, POLYGON_SHADOW, PINK } from "./styles";
 export const MENU_ITEMS = ["Home", "About", "Skills", "Projects"];
 export const CERTIFICATES = [
     {
@@ -103,4 +104,31 @@ export const SKILLS = [
         name: 'SQL',
         value: 65
     },
-]
+];
+
+export const circleStyle = {
+    width: "700px",
+    height: "700px",
+    borderRadius: "50%",
+    background: POLYGON_BG,
+    boxShadow: POLYGON_SHADOW,
+    position: "absolute",
+    zIndex: 1,
+    top: "20%",
+    left: "50%",
+    transform: "translateX(-50%)",
+};
+
+export const polygonBaseStyles = {
+    position: "absolute",
+    zIndex: 0,
+};
+export const circleBaseStyles = {
+    borderRadius: "50%",
+    background: POLYGON_BG,
+    boxShadow: POLYGON_SHADOW,
+};
+
+export const spanStyle = {
+    color: PINK,
+};

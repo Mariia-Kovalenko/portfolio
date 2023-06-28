@@ -3,7 +3,7 @@ import Container from "../../Layout/Container/Container";
 import SectionHeading from "../../common/SectionHeading/SectionHeading";
 import LinearProgress from "@mui/material/LinearProgress";
 import { LIGHT_GREY_BG, PINK, WHITE } from "../../utils/styles";
-import { SKILLS } from "../../utils/constants";
+import { SKILLS, circleBaseStyles, polygonBaseStyles } from "../../utils/constants";
 
 const gridStyles = {
     display: "grid",
@@ -65,6 +65,17 @@ export default function Skills() {
                     })}
                 </Box>
             </Container>
+
+            <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        height: 30,
+                        width: 30,
+                        ...circleBaseStyles,
+                        top: "15%",
+                        left: "23%",
+                    }}
+                />
         </Box>
     );
 }
