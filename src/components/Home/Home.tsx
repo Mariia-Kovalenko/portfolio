@@ -1,6 +1,5 @@
-import { Avatar, Box, Button, Link, Typography } from "@mui/material";
+import { Avatar, Box, Link, Typography } from "@mui/material";
 import {
-    DARKPINK,
     LIGHT_GREY_BG,
     PINK,
     POLYGON_BG,
@@ -9,47 +8,27 @@ import {
 } from "../../utils/styles";
 import Container from "../../Layout/Container/Container";
 import { useMediaQuery } from "@mui/material";
-import DownloadIcon from "@mui/icons-material/Download";
 import { ColoredButton } from "../../common/ColoredButton/ColoredButton";
-import { circleBaseStyles, circleStyle, polygonBaseStyles, spanStyle } from "../../utils/constants";
+import {
+    EMAIL,
+    MOBILE_BREAKPOINT,
+    SMALL_DESKTOP_BREAKPOINT,
+    SMALL_MOBILE_BREAKPOINT,
+    SOCIAL_MEDIA,
+    circleBaseStyles,
+    circleStyle,
+    polygonBaseStyles,
+    spanStyle,
+} from "../../utils/constants";
+import SocialMedia from "../../common/SocialMedia/SocialMedia";
 
 const homeStyle = {
     background: LIGHT_GREY_BG,
     color: WHITE,
-    minHeight: "100vh",
     position: "relative",
     overflow: "hidden",
-    paddingBottom: '20px'
+    paddingBottom: "20px",
 };
-
-// const circleStyle = {
-//     width: "700px",
-//     height: "700px",
-//     borderRadius: "50%",
-//     background: POLYGON_BG,
-//     boxShadow: POLYGON_SHADOW,
-//     position: "absolute",
-//     zIndex: 1,
-//     top: "20%",
-//     left: "50%",
-//     transform: "translateX(-50%)",
-// };
-
-// const polygonBaseStyles = {
-//     position: "absolute",
-//     zIndex: 0,
-// };
-// const circleBaseStyles = {
-//     borderRadius: "50%",
-//     background: POLYGON_BG,
-//     boxShadow: POLYGON_SHADOW,
-// };
-
-// export const spanStyle = {
-//     color: PINK,
-// };
-
-const avatarSize = { height: "30px", width: "30px" };
 
 const sideContainer = {
     display: "flex",
@@ -61,11 +40,12 @@ const sideContainer = {
 };
 
 function Home() {
-    const isSmallMobile = useMediaQuery("(max-width:540px)");
-    const isMobile = useMediaQuery("(max-width:780px)");
-    const isSmallDesktop = useMediaQuery("(max-width:1100px)");
+    const isSmallMobile = useMediaQuery(SMALL_MOBILE_BREAKPOINT);
+    const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+    const isSmallDesktop = useMediaQuery(SMALL_DESKTOP_BREAKPOINT);
+
     return (
-        <Box sx={homeStyle}>
+        <Box sx={{ ...homeStyle, height: isMobile ? "fit-content" : "100vh" }}>
             <Container>
                 <Box
                     sx={{
@@ -90,7 +70,11 @@ function Home() {
                         <Typography
                             variant="h1"
                             sx={{
-                                fontSize: isMobile ? "75px" : "100px",
+                                fontSize: isSmallMobile
+                                    ? "60px"
+                                    : isMobile
+                                    ? "75px"
+                                    : "100px",
                                 fontWeight: "500",
                                 letterSpacing: "0.05em",
                                 lineHeight: "112%",
@@ -108,30 +92,20 @@ function Home() {
                                 marginBottom: "20px",
                             }}
                         >
-                            <Avatar
-                                sx={avatarSize}
-                                src="/github.svg"
-                                alt="github"
-                            />
-                            <Avatar
-                                sx={avatarSize}
-                                src="/gitlab.svg"
-                                alt="gitlab"
-                            />
-                            <Avatar
-                                sx={avatarSize}
-                                src="/linkedin.svg"
-                                alt="linkedin"
-                            />
+                            {SOCIAL_MEDIA.map(({ id, name, image, href }) => {
+                                return (
+                                    <SocialMedia id={id} name={name} href={href} image={image} />
+                                );
+                            })}
                         </Box>
 
                         <Link
-                            href="#"
+                            href={`mailto:${EMAIL}`}
                             variant="body1"
                             underline="hover"
                             sx={{ color: PINK }}
                         >
-                            mariya.kovalenko.2000@gmail.com
+                            {EMAIL}
                         </Link>
                     </Box>
 
@@ -180,12 +154,22 @@ function Home() {
                                 to be my best traits.
                             </Typography>
                             <ColoredButton
-                                variant="outlined"
+                                variant="contained"
                                 size="large"
                                 fullWidth={isSmallMobile ? true : false}
-                                startIcon={<DownloadIcon />}
+                                sx={{ minWidth: "200px" }}
                             >
-                                Download CV
+                                <Link
+                                    href="https://drive.google.com/file/d/1W6YUEIjykLQECOP5FlQR7uec0jDboLui/view?usp=sharing"
+                                    target="_blank"
+                                    sx={{
+                                        color: "inherit",
+                                        width: "100%",
+                                        textDecoration: "none",
+                                    }}
+                                >
+                                    View CV
+                                </Link>
                             </ColoredButton>
                         </Box>
                     </Box>
@@ -203,6 +187,7 @@ function Home() {
                             top: "-50px",
                             left: "50%",
                             transform: "translateX(-50%)",
+                            height: "120%",
                         }}
                     >
                         <img

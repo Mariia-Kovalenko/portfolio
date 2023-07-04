@@ -3,11 +3,15 @@ import { PINK } from "../../utils/styles";
 import { Button } from "@mui/material";
 
 export const ColoredButton = styled(Button)({
+    border: `1.5px solid ${PINK}`,
     color: PINK,
-    border: `1px solid ${PINK}`,
+    backgroundColor: 'transparent',
+    transition: '0.3',
+    boxShadow: 'none',
     "&:hover": {
-        backgroundColor: "rgba(249, 77, 118, 0.1)",
-        borderColor: PINK,
+        backgroundColor: '#FFBACB',
+        border: `1.5px solid ${PINK}`,
         boxShadow: "none",
+        background: 'rgba(255, 135, 164, 0.3)',
     },
 });

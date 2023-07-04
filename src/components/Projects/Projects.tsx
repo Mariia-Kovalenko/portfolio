@@ -106,7 +106,7 @@ function ProjectCard({
                     >
                         {name}
                     </Typography>
-                    <Typography variant="body2">{description}</Typography>
+                    <Typography variant="body2" gutterBottom>{description}</Typography>
                 </CardContent>
                 <CardActions
                     sx={{
@@ -134,19 +134,17 @@ function ProjectCard({
 }
 
 export default function Projects() {
-    const isSmallMobile = useMediaQuery("(max-width:540px)");
+    const isMobile = useMediaQuery("(max-width:990px)");
+    const isSmallMobile = useMediaQuery("(max-width:665px)");
 
     return (
         <Container>
             <SectionHeading title="Projects" />
             <Box
                 sx={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    flexDirection: isSmallMobile ? "column" : "row",
-                    justifyContent: "space-between",
-                    paddingBottom: "20px",
-                    gap: "40px",
+                    display: 'grid',
+                    gridTemplateColumns: isSmallMobile ? '1fr' : isMobile ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+                    gap: '30px'
                 }}
             >
                 {PROJECTS.map(

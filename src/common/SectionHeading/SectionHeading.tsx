@@ -6,7 +6,8 @@ export default function SectionHeading({ title }: { title: string }) {
         <Typography
             variant="h4"
             fontFamily={CODE_FONT}
-            sx={{ margin: "25px 0" }}
+            fontWeight='600'
+            sx={{ margin: "30px 0" }}
         >
             {`<${title}/>`}
         </Typography>

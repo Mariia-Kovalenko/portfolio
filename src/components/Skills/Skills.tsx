@@ -2,8 +2,18 @@ import { Box, Typography, useMediaQuery } from "@mui/material";
 import Container from "../../Layout/Container/Container";
 import SectionHeading from "../../common/SectionHeading/SectionHeading";
 import LinearProgress from "@mui/material/LinearProgress";
-import { LIGHT_GREY_BG, PINK, WHITE } from "../../utils/styles";
-import { SKILLS, circleBaseStyles, polygonBaseStyles } from "../../utils/constants";
+import {
+    LIGHT_GREY_BG,
+    PINK,
+    POLYGON_BG,
+    POLYGON_SHADOW,
+    WHITE,
+} from "../../utils/styles";
+import {
+    SKILLS,
+    circleBaseStyles,
+    polygonBaseStyles,
+} from "../../utils/constants";
 
 const gridStyles = {
     display: "grid",
@@ -30,7 +40,13 @@ export default function Skills() {
     const isMobile = useMediaQuery("(max-width:780px)");
 
     return (
-        <Box sx={{ background: LIGHT_GREY_BG, padding: '10px 0 20px' }}>
+        <Box
+            sx={{
+                background: LIGHT_GREY_BG,
+                padding: "10px 0 20px",
+                position: "relative",
+            }}
+        >
             <Container>
                 <SectionHeading title="Skills" />
                 <Box
@@ -66,16 +82,80 @@ export default function Skills() {
                 </Box>
             </Container>
 
+            {/* polygons */}
             <Box
+                sx={{
+                    display: isMobile? "none" : "block",
+                    zIndex: 0,
+                }}
+            >
+                <Box
                     sx={{
                         ...polygonBaseStyles,
                         height: 30,
                         width: 30,
                         ...circleBaseStyles,
-                        top: "15%",
+                        bottom: "30%",
                         left: "23%",
                     }}
                 />
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        height: 50,
+                        width: 50,
+                        ...circleBaseStyles,
+                        top: "15%",
+                        right: "15%",
+                    }}
+                />
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        bottom: "15%",
+                        left: "3%",
+                        transform: "rotate(20deg)",
+                    }}
+                >
+                    <img src="/curves.svg" alt="" />
+                </Box>
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        right: "8%",
+                        bottom: "10%",
+                    }}
+                >
+                    <img src="/curves.svg" alt="" />
+                </Box>
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        boxShadow: POLYGON_SHADOW,
+                        background: POLYGON_BG,
+                        clipPath: "polygon(50% 0, 100% 100%, 0 100%)",
+                        width: "100px",
+                        height: "100px",
+                        bottom: "20%",
+                        right: "30%",
+                        transform: "rotate(20deg)",
+                    }}
+                />
+
+                <Box
+                    sx={{
+                        ...polygonBaseStyles,
+                        boxShadow: POLYGON_SHADOW,
+                        background: POLYGON_BG,
+                        clipPath: "polygon(50% 0, 100% 100%, 0 100%)",
+                        width: "100px",
+                        height: "100px",
+                        top: "20%",
+                        left: "5%",
+                        transform: "rotate(-20deg)",
+                    }}
+                />
+            </Box>
         </Box>
     );
 }

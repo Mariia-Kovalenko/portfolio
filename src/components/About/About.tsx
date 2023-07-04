@@ -1,22 +1,35 @@
-import { Box, Container, Typography, Link, useMediaQuery } from "@mui/material";
-import { CODE_FONT, LIGHTGREY, PINK, WHITE } from "../../utils/styles";
+import {
+    Box,
+    Typography,
+    Link,
+    useMediaQuery,
+    Card,
+    CardContent,
+} from "@mui/material";
+import {
+    CARD_BORDER,
+    CARD_SHADOW,
+    CODE_FONT,
+    LIGHTGREY,
+    LIGHT_GREY_BG,
+    PINK,
+    WHITE,
+} from "../../utils/styles";
 import LinkIcon from "@mui/icons-material/Link";
 import { CERTIFICATES, EDUCATION, spanStyle } from "../../utils/constants";
 import SectionHeading from "../../common/SectionHeading/SectionHeading";
+import Container from "../../Layout/Container/Container";
 
 const Title = ({ title }: { title: string }) => {
     return (
         <Box>
-            <Typography variant="h6">{title}</Typography>
-            <Box
-                sx={{
-                    height: "2px",
-                    width: "50%",
-                    minWidth: "150px",
-                    background: PINK,
-                    marginBottom: "15px",
-                }}
-            />
+            <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ color: PINK, textTransform: "uppercase" }}
+            >
+                {title}
+            </Typography>
         </Box>
     );
 };
@@ -29,7 +42,19 @@ function AboutSection({
     children?: React.ReactNode;
 }) {
     return (
-        <Box sx={{ flex: `1 1 ${isMobile ? "50%" : "30%"}`, COLOR: 'inherit' }}>{children}</Box>
+        // Box sx={{ flex: `1 1 ${isMobile ? "50%" : "30%"}`, COLOR: 'inherit' }}>{children}</Box>
+        <Card
+            sx={{
+                minWidth: 300,
+                backgroundColor: LIGHT_GREY_BG,
+                boxShadow: CARD_SHADOW,
+                border: CARD_BORDER,
+                flex: "1 1 30%",
+                color: LIGHTGREY,
+            }}
+        >
+            <CardContent>{children}</CardContent>
+        </Card>
     );
 }
 
@@ -45,7 +70,7 @@ function Education({
     years: string;
 }) {
     return (
-        <Box>
+        <Box sx={{ marginBottom: "30px" }}>
             <Typography variant="body1" fontWeight={600} gutterBottom>
                 {degree}
             </Typography>
@@ -112,7 +137,7 @@ export default function About() {
 
     return (
         <Container>
-            <SectionHeading title='About' />
+            <SectionHeading title="About" />
             <Box
                 sx={{
                     display: "flex",
@@ -162,9 +187,14 @@ export default function About() {
                 </AboutSection>
                 <AboutSection isMobile={isMobile}>
                     <Title title="Certificates" />
-                    {CERTIFICATES.map(({id, link, title, date}) => {
+                    {CERTIFICATES.map(({ id, link, title, date }) => {
                         return (
-                            <Certificate key={id} link={link} title={title} date={date} /> 
+                            <Certificate
+                                key={id}
+                                link={link}
+                                title={title}
+                                date={date}
+                            />
                         );
                     })}
                 </AboutSection>

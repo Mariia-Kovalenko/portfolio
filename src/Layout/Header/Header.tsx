@@ -6,6 +6,8 @@ import {
     Typography,
     ListItemButton,
     ListItemText,
+    Box,
+    Link,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { MENU_ITEMS } from "../../utils/constants";
@@ -21,15 +23,8 @@ export default function Header({
     handleDrawerOpen: () => void;
 }) {
     return (
-        <Toolbar>
-            <Typography
-                variant="h6"
-                noWrap
-                sx={{ flexGrow: 1 }}
-                component="div"
-            >
-                {'<MT/>'}
-            </Typography>
+        <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
+            <Link href='#' ><img src='logo.svg' alt='logo' height='30px' /></Link>
             {isMobile ? (
                 <IconButton
                     color="inherit"

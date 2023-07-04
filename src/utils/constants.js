@@ -1,5 +1,38 @@
 import { POLYGON_BG, POLYGON_SHADOW, PINK } from "./styles";
 export const MENU_ITEMS = ["Home", "About", "Skills", "Projects"];
+
+export const EMAIL ='mariya.kovalenko.2000@gmail.com';
+
+export const GITHUB_LINK = 'https://github.com/Mariia-Kovalenko';
+export const GITLAB_LINK = 'https://gitlab.com/Mariia_Kovalenko';
+export const LINKED_IN = 'https://www.linkedin.com/in/mariia-tanchuk-4b72b3247/';
+
+export const SOCIAL_MEDIA = [
+    {
+        id: 1,
+        name: 'github',
+        image: '/github.svg',
+        href: GITHUB_LINK
+    },
+    {
+        id: 2,
+        name: 'gitlab',
+        image: '/gitlab.svg',
+        href: GITLAB_LINK
+    },
+    {
+        id: 3,
+        name: 'linkedin',
+        image: '/linkedin.svg',
+        href: LINKED_IN
+    },
+]
+
+
+export const SMALL_MOBILE_BREAKPOINT = "(max-width:540px)";
+export const MOBILE_BREAKPOINT = "(max-width:780px)";
+export const SMALL_DESKTOP_BREAKPOINT = "(max-width:1100px)";
+
 export const CERTIFICATES = [
     {
         id: '1',
@@ -29,7 +62,7 @@ export const EDUCATION = [
 export const PROJECTS = [
     {
         id: '1',
-        name: 'Cat API',
+        name: 'Choose Your Cat',
         description: 'Application for browsing different cat breeds with images of cute cats. You can filter, like and dislike images.',
         technologies: ['React'],
         link: 'https://cats-api-1am0.onrender.com/',
@@ -40,7 +73,7 @@ export const PROJECTS = [
         name: 'Task Manager',
         description: 'A full-stack Jira-like application for managing tasks. Allows users to create boards, add tasks to them and change their progress.',
         technologies: ['Angular', 'NodeJS'],
-        link: 'https://dashboard-angular-project.onrender.com',
+        link: 'https://dashboard-angular-project.onrender.com/',
         image: 'task-controll-app.jpg'
     },
     {
@@ -51,6 +84,14 @@ export const PROJECTS = [
         link: 'https://github.com/Mariia-Kovalenko/glamo_beauty_app_frontend',
         image: 'glamo-proj.jpg'
     },
+    {
+        id: '4',
+        name: 'Currency Converter',
+        description: 'A real-time currency converter that allowes users to convert UAH to such currencies as USD and EUR using the latest exchange rates',
+        technologies: ['Angular'],
+        link: 'https://currency-converter-va9d.onrender.com/',
+        image: 'currency-converter.jpg'
+    }
 ]
 
 export const SKILLS = [
@@ -66,41 +107,46 @@ export const SKILLS = [
     },
     {
         id: '3',
-        name: 'JS',
+        name: 'SASS',
         value: 90
     },
     {
         id: '4',
-        name: 'TypeScript',
-        value: 85
+        name: 'JS',
+        value: 90
     },
     {
         id: '5',
+        name: 'TypeScript',
+        value: 83
+    },
+    {
+        id: '6',
         name: 'Git',
         value: 78
     },
     {
-        id: '6',
+        id: '7',
         name: 'Angular',
         value: 50
     },
     {
-        id: '7',
+        id: '8',
         name: 'React',
         value: 80
     },
     {
-        id: '8',
+        id: '9',
         name: 'NodeJS',
         value: 50
     },
     {
-        id: '9',
+        id: '10',
         name: 'NestJS',
-        value: 65
+        value: 60
     },
     {
-        id: '10',
+        id: '11',
         name: 'SQL',
         value: 65
     },
