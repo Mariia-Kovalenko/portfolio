@@ -1,3 +1,4 @@
+import Footer from "./Layout/Footer/Footer";
 import PageLayout from "./Layout/PageLayout/PageLayout";
 import About from "./components/About/About";
 import Home from "./components/Home/Home";
@@ -11,7 +12,7 @@ function App() {
             <About />
             <Skills />
             <Projects />
-            
+            <Footer />
         </PageLayout>
     );
 }
