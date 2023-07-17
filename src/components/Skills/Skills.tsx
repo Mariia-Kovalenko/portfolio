@@ -41,6 +41,7 @@ export default function Skills() {
 
     return (
         <Box
+            id='skills'
             sx={{
                 background: LIGHT_GREY_BG,
                 padding: "10px 0 20px",

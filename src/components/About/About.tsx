@@ -136,7 +136,7 @@ export default function About() {
     const isMobile = useMediaQuery("(max-width:780px)");
 
     return (
-        <Container>
+        <Container id='about'>
             <SectionHeading title="About" />
             <Box
                 sx={{

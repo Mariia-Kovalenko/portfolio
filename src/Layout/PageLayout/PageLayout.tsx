@@ -11,7 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import { useMediaQuery } from "@mui/material";
+import { Link, useMediaQuery } from "@mui/material";
 import Header from "../Header/Header";
 import { DARK_GREY_BG, LIGHT_GREY_BG, WHITE } from "../../utils/styles";
 import { MENU_ITEMS } from "../../utils/constants";
@@ -144,7 +144,21 @@ export default function PageLayout({
                                     textTransform={"uppercase"}
                                     fontFamily={"Source Code Pro"}
                                 >
-                                    {item}
+                                    <Link
+                                        sx={{
+                                            textDecoration: 'none',
+                                            font: 'inherit'
+                                        }}
+                                        href={`#${item.toLowerCase()}`}
+                                        onClick={(e) => {
+                                            let i =
+                                                document.getElementById(item.toLowerCase());
+                                            e.preventDefault(); // Stop Page Reloading
+                                            i && i.scrollIntoView({ behavior: "smooth", block: "center" });
+                                        }}
+                                    >
+                                        {item}
+                                    </Link>
                                 </Typography>
                             </ListItemButton>
                         </ListItem>

@@ -138,7 +138,7 @@ export default function Projects() {
     const isSmallMobile = useMediaQuery("(max-width:665px)");
 
     return (
-        <Container>
+        <Container id='projects'>
             <SectionHeading title="Projects" />
             <Box
                 sx={{

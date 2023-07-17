@@ -45,7 +45,7 @@ function Home() {
     const isSmallDesktop = useMediaQuery(SMALL_DESKTOP_BREAKPOINT);
 
     return (
-        <Box sx={{ ...homeStyle, height: isMobile ? "fit-content" : "100vh" }}>
+        <Box id='home' sx={{ ...homeStyle, height: isMobile ? "fit-content" : "100vh" }}>
             <Container>
                 <Box
                     sx={{

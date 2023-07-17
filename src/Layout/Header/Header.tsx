@@ -23,8 +23,10 @@ export default function Header({
     handleDrawerOpen: () => void;
 }) {
     return (
-        <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <Link href='#' ><img src='logo.svg' alt='logo' height='30px' /></Link>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Link href="#">
+                <img src="logo.svg" alt="logo" height="30px" />
+            </Link>
             {isMobile ? (
                 <IconButton
                     color="inherit"
@@ -50,10 +52,24 @@ export default function Header({
                                     variant="body1"
                                     fontFamily={"Source Code Pro"}
                                     sx={{
-                                        color: index === 0 ? PINK : WHITE
+                                        color: index === 0 ? PINK : WHITE,
                                     }}
                                 >
-                                    {item}
+                                    <Link
+                                        sx={{
+                                            textDecoration: 'none',
+                                            font: 'inherit'
+                                        }}
+                                        href={`#${item.toLowerCase()}`}
+                                        onClick={(e) => {
+                                            let i =
+                                                document.getElementById(item.toLowerCase());
+                                            e.preventDefault(); // Stop Page Reloading
+                                            i && i.scrollIntoView({ behavior: "smooth", block: "center" });
+                                        }}
+                                    >
+                                        {item}
+                                    </Link>
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
