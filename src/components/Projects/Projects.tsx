@@ -89,9 +89,10 @@ function ProjectCard({
                             marginBottom: "10px",
                         }}
                     >
-                        {technologies.map((tech) => {
+                        {technologies.map((tech, i) => {
                             return (
                                 <Typography
+                                    key={i}
                                     component="span"
                                     sx={{ fontSize: "12px", color: YELLOW }}
                                 >{`${tech}`}</Typography>
@@ -138,7 +139,7 @@ export default function Projects() {
     const isSmallMobile = useMediaQuery("(max-width:665px)");
 
     return (
-        <Container id='projects'>
+        <Container data-section id='projects'>
             <SectionHeading title="Projects" />
             <Box
                 sx={{

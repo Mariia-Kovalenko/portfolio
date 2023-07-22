@@ -39,6 +39,7 @@ export default function Footer() {
                             {SOCIAL_MEDIA.map(({ id, name, image, href }) => {
                                 return (
                                     <SocialMedia
+                                        key={id}
                                         id={id}
                                         name={name}
                                         href={href}

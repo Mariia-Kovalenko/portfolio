@@ -12,6 +12,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { MENU_ITEMS } from "../../utils/constants";
 import { WHITE, PINK } from "../../utils/styles";
+import { useState, useRef } from "react";
 
 export default function Header({
     isMobile,
@@ -22,6 +23,40 @@ export default function Header({
     open: boolean;
     handleDrawerOpen: () => void;
 }) {
+    // const [activeSection, setActiveSection] = useState<any>(null);
+    // const observer = useRef<any>(null);
+
+    // useEffect(() => {
+    //     setActiveSection('home');
+    //     //create new instance and pass a callback function
+    //     observer.current = new IntersectionObserver((entries) => {
+    //         const visibleSection = entries.find(
+    //             (entry) => { console.log(entry.intersectionRatio); return entry.isIntersecting }
+    //             // (entry) => 
+    //             // { 
+    //             //     console.log(entry)
+    //             //     if (entry.intersectionRatio) return entry.intersectionRatio 
+    //             // }
+    //         )?.target;
+    //         //Update state with the visible section ID
+    //         console.log(visibleSection)
+    //         if (visibleSection) {
+    //             setActiveSection(visibleSection.id);
+    //         }
+    //     });
+
+    //     //Get custom attribute data-section from all sections
+    //     const sections = document.querySelectorAll("[data-section]");
+
+    //     sections.forEach((section) => {
+    //         observer.current.observe(section);
+    //     });
+    //     return () => {
+    //         sections.forEach((section) => {
+    //             observer.current.unobserve(section);
+    //         });
+    //     };
+    // }, []);
     return (
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
             <Link href="#">
@@ -42,30 +77,28 @@ export default function Header({
                     {MENU_ITEMS.map((item, index) => (
                         <ListItem key={index} disablePadding>
                             <ListItemButton>
-                                {/* <ListItemText
-                                    primary={item}
-                                    sx={{
-                                        fontFamily: "Source Code Pro",
-                                    }}
-                                /> */}
                                 <Typography
                                     variant="body1"
                                     fontFamily={"Source Code Pro"}
-                                    sx={{
-                                        color: index === 0 ? PINK : WHITE,
-                                    }}
                                 >
                                     <Link
                                         sx={{
-                                            textDecoration: 'none',
-                                            font: 'inherit'
+                                            textDecoration: "none",
+                                            font: "inherit",
+                                            color: WHITE
+                                            // color: activeSection === item.toLowerCase() ? PINK : WHITE,
                                         }}
                                         href={`#${item.toLowerCase()}`}
                                         onClick={(e) => {
-                                            let i =
-                                                document.getElementById(item.toLowerCase());
+                                            let i = document.getElementById(
+                                                item.toLowerCase()
+                                            );
                                             e.preventDefault(); // Stop Page Reloading
-                                            i && i.scrollIntoView({ behavior: "smooth", block: "center" });
+                                            i &&
+                                                i.scrollIntoView({
+                                                    behavior: "smooth",
+                                                    block: "start",
+                                                });
                                         }}
                                     >
                                         {item}

@@ -45,7 +45,7 @@ function Home() {
     const isSmallDesktop = useMediaQuery(SMALL_DESKTOP_BREAKPOINT);
 
     return (
-        <Box id='home' sx={{ ...homeStyle, height: isMobile ? "fit-content" : "100vh" }}>
+        <Box data-section id='home' sx={{ ...homeStyle, height: isMobile ? "fit-content" : "100vh" }}>
             <Container>
                 <Box
                     sx={{
@@ -94,7 +94,7 @@ function Home() {
                         >
                             {SOCIAL_MEDIA.map(({ id, name, image, href }) => {
                                 return (
-                                    <SocialMedia id={id} name={name} href={href} image={image} />
+                                    <SocialMedia key={id} id={id} name={name} href={href} image={image} />
                                 );
                             })}
                         </Box>

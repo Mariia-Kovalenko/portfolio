@@ -42,10 +42,12 @@ export default function Skills() {
     return (
         <Box
             id='skills'
+            data-section
             sx={{
                 background: LIGHT_GREY_BG,
                 padding: "10px 0 20px",
                 position: "relative",
+                // height: '80vh'
             }}
         >
             <Container>

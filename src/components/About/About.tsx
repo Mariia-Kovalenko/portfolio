@@ -9,11 +9,9 @@ import {
 import {
     CARD_BORDER,
     CARD_SHADOW,
-    CODE_FONT,
     LIGHTGREY,
     LIGHT_GREY_BG,
     PINK,
-    WHITE,
 } from "../../utils/styles";
 import LinkIcon from "@mui/icons-material/Link";
 import { CERTIFICATES, EDUCATION, spanStyle } from "../../utils/constants";
@@ -42,7 +40,6 @@ function AboutSection({
     children?: React.ReactNode;
 }) {
     return (
-        // Box sx={{ flex: `1 1 ${isMobile ? "50%" : "30%"}`, COLOR: 'inherit' }}>{children}</Box>
         <Card
             sx={{
                 minWidth: 300,
@@ -136,7 +133,7 @@ export default function About() {
     const isMobile = useMediaQuery("(max-width:780px)");
 
     return (
-        <Container id='about'>
+        <Container data-section id="about">
             <SectionHeading title="About" />
             <Box
                 sx={{

@@ -3,11 +3,9 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -147,14 +145,15 @@ export default function PageLayout({
                                     <Link
                                         sx={{
                                             textDecoration: 'none',
-                                            font: 'inherit'
+                                            font: 'inherit',
+                                            color: WHITE
                                         }}
                                         href={`#${item.toLowerCase()}`}
                                         onClick={(e) => {
                                             let i =
                                                 document.getElementById(item.toLowerCase());
                                             e.preventDefault(); // Stop Page Reloading
-                                            i && i.scrollIntoView({ behavior: "smooth", block: "center" });
+                                            i && i.scrollIntoView({ behavior: "smooth", block: "start" });
                                         }}
                                     >
                                         {item}
