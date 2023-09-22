@@ -2,6 +2,7 @@ import { POLYGON_BG, POLYGON_SHADOW, PINK } from "./styles";
 export const MENU_ITEMS = ["Home", "About", "Skills", "Projects"];
 
 export const EMAIL ='mariya.kovalenko.2000@gmail.com';
+export const CV_LINK='https://drive.google.com/file/d/1SvJJ8bBFh1coQC3NetJK1a7rgd0zhOoi/view?usp=sharing';
 
 export const GITHUB_LINK = 'https://github.com/Mariia-Kovalenko';
 export const GITLAB_LINK = 'https://gitlab.com/Mariia_Kovalenko';
@@ -81,8 +82,8 @@ export const PROJECTS = [
         name: 'Glamo',
         description: 'A full-stack application for users who want to find the closest beauty services available in the area and browse them on a map.',
         technologies: ['React', 'NestJS'],
-        link: 'https://github.com/Mariia-Kovalenko/glamo_beauty_app_frontend',
-        image: 'glamo-proj.jpg'
+        link: 'https://github.com/Mariia-Kovalenko/glamo_app_frontend',
+        image: 'glamo_frontend.png'
     },
     {
         id: '4',
@@ -160,9 +161,9 @@ export const circleStyle = {
     boxShadow: POLYGON_SHADOW,
     position: "absolute",
     zIndex: 1,
-    top: "20%",
+    top: "50%",
     left: "50%",
-    transform: "translateX(-50%)",
+    transform: "translate(-50%, -50%)",
 };
 
 export const polygonBaseStyles = {

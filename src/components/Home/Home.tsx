@@ -1,5 +1,7 @@
-import { Avatar, Box, Link, Typography } from "@mui/material";
+import { Button, Box, Link, Typography } from "@mui/material";
 import {
+    DARKPINK,
+    DARK_GREY_BG,
     LIGHT_GREY_BG,
     PINK,
     POLYGON_BG,
@@ -10,6 +12,7 @@ import Container from "../../Layout/Container/Container";
 import { useMediaQuery } from "@mui/material";
 import { ColoredButton } from "../../common/ColoredButton/ColoredButton";
 import {
+    CV_LINK,
     EMAIL,
     MOBILE_BREAKPOINT,
     SMALL_DESKTOP_BREAKPOINT,
@@ -153,24 +156,32 @@ function Home() {
                                 and <span style={spanStyle}>sociability</span>{" "}
                                 to be my best traits.
                             </Typography>
-                            <ColoredButton
-                                variant="contained"
-                                size="large"
-                                fullWidth={isSmallMobile ? true : false}
-                                sx={{ minWidth: "200px" }}
+                            <Link
+                                href={CV_LINK}
+                                target="_blank"
+                                sx={{
+                                    color: "inherit",
+                                    width: "100%",
+                                    textDecoration: "none",
+                                }}
                             >
-                                <Link
-                                    href="https://drive.google.com/file/d/1W6YUEIjykLQECOP5FlQR7uec0jDboLui/view?usp=sharing"
-                                    target="_blank"
-                                    sx={{
-                                        color: "inherit",
-                                        width: "100%",
-                                        textDecoration: "none",
+                                <Button
+                                    variant="contained"
+                                    size="large"
+                                    fullWidth={isSmallMobile ? true : false}
+                                    sx={{ 
+                                        minWidth: "200px", 
+                                        background: PINK, 
+                                        color: DARK_GREY_BG, 
+                                        fontWeight: 600,
+                                        "&:hover": {
+                                            background: DARKPINK
+                                        } 
                                     }}
                                 >
                                     View CV
-                                </Link>
-                            </ColoredButton>
+                                </Button>
+                            </Link>
                         </Box>
                     </Box>
                 </Box>
@@ -184,10 +195,10 @@ function Home() {
                     <Box
                         sx={{
                             position: "absolute",
-                            top: "-50px",
+                            top: "20px",
                             left: "50%",
                             transform: "translateX(-50%)",
-                            height: "120%",
+                            height: "130%",
                         }}
                     >
                         <img

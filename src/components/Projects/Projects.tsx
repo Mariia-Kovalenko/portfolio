@@ -60,12 +60,23 @@ function ProjectCard({
                 }}
             >
                 {image ? (
-                    <CardMedia
-                        component="img"
-                        height="220"
-                        image={image}
-                        alt="project-pic"
-                    />
+                    <Box sx={{ height: '220px', width: '100%', overflow: 'hidden'}}>
+                        <CardMedia
+                            component="img"
+                            
+                            image={image}
+                            alt="project-pic"
+                            sx={{ 
+                                height: '100%',
+                                width: '100%',
+                                transition: "all 0.3s ease",
+                                "&:hover": {
+                                    transform: "scale(1.8)"
+                                }
+                            }}
+                        />
+                    </Box>
+                    
                 ) : (
                     <Box
                         sx={{
@@ -115,19 +126,22 @@ function ProjectCard({
                         marginTop: "auto",
                     }}
                 >
-                    <ColoredButton
-                        size="medium"
-                        variant="outlined"
-                        fullWidth={isMobile ? true : false}
+                    <Link
+                        href={link}
+                        target="_blank"
+                        sx={{ 
+                            color: "inherit", 
+                            textDecoration: "none", 
+                        }}
                     >
-                        <Link
-                            href={link}
-                            target="_blank"
-                            sx={{ color: "inherit", textDecoration: "none" }}
+                        <ColoredButton
+                            size="medium"
+                            variant="outlined"
+                            fullWidth={isMobile ? true : false}
                         >
                             View
-                        </Link>
-                    </ColoredButton>
+                        </ColoredButton>
+                    </Link>
                 </CardActions>
             </CardActionArea>
         </Card>
