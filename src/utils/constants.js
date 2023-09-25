@@ -41,6 +41,12 @@ export const CERTIFICATES = [
         link: 'https://certificates.epam.com/certificates/29d6dfd4-e260-470b-99a2-48377423d9ae',
         date: '23 December, 2022'
     },
+    {
+        id: '1',
+        title: 'EPAM Front-End and Javascript Program',
+        link: 'https://certificates.epam.com/certificates/67114e89-cb51-46e2-a608-3da30c0b9dec',
+        date: '25 September, 2023'
+    }
 ]
 
 export const EDUCATION = [
